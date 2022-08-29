@@ -23,7 +23,27 @@ function generatePassword(){
     alert("Please enter a valid password length (between 8 & 128):");
     return generatePassword();
   }  
-  }
+}
+//Creating arrays based on inputs from user
+if (lowercase===true){
+  lowercase = ["abcdefghijklmnopqrstuvwxyz"];
+}else if(lowercase===false){
+  lowercase = [""];
+}
+if (capital===true){
+  capital = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+}else if(capital===false){
+  capital = [""]
+}
+if (number===true){
+  number = ["1234567890"];
+}else if(number===false){
+  number = [""];
+}
+if (specialChar===true){
+  specialChar = ["!@#$%^&*/?()-=+_:;<>"];
+}else if(specialChar===false){
+  specialChar = [""];
 }
 
 // Add event listener to generate button
