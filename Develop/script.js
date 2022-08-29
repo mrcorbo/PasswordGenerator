@@ -13,22 +13,22 @@ function generatePassword(){
   }  
 //Creating arrays based on inputs from user
   if (lowercase===true){
-    lowercase = ["abcdefghijklmnopqrstuvwxyz"];
+    lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   }else if(lowercase===false){
     lowercase = [""];
   }
   if (capital===true){
-    capital = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    capital = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   }else if(capital===false){
     capital = [""];
   }
   if (number===true){
-    number = ["1234567890"];
+    number = ["1","2","3","4","5","6","7","8","9","0"];
   }else if(number===false){
     number = [""];
   }
   if (specialChar===true){
-    specialChar = ["!@#$%^&*/?()-=+_:;<>"];
+    specialChar = ["!","@","#","$","%","^","&","*","/","?","(",")","-","=","+"];
   }else if(specialChar===false){
     specialChar = [""];
   }
@@ -36,9 +36,10 @@ function generatePassword(){
 var inputRand = lowercase + num + lowercase + capital;
 //for loop to generate password based on user input.
 for (var i=0; i<passLength; i++){
-  var randomChar = inputRand[Math.floor(Math.random() * inputRand.length)];
+  var randomChar = getRandom(inputRand);
+  result.push(randomChar);
 }
-return password;
+return result.join("");
 }
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
