@@ -1,4 +1,6 @@
 function generatePassword(){
+  var inputRand = [];
+  var result = [];
   var passLength = prompt("Password must be between 8 & 128 characters, please input length:");
   // If statement to make sure that length of password is valid, then select criteria.
   if (passLength >= 8 && passLength <= 128) {
@@ -33,13 +35,21 @@ function generatePassword(){
     specialChar = [""];
   }
 //establish new array based on user input.
-var inputRand = lowercase + num + lowercase + capital;
+inputRand =  inputRand.concat(lowercase);
+inputRand = inputRand.concat(number);
+inputRand = inputRand.concat(specialChar);
+inputRand = inputRand.concat(capital);
 //for loop to generate password based on user input.
 for (var i=0; i<passLength; i++){
   var randomChar = getRandom(inputRand);
   result.push(randomChar);
 }
 return result.join("");
+}
+// Random selection from total array based on user input.
+function getRandom(arr){
+  var randomSelection = Math.floor(Math.random()*arr.length);
+  return arr[randomSelection];
 }
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
